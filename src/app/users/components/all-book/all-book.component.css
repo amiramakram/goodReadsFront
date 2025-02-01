@@ -1,0 +1,36 @@
+.wrap{
+    display: flex;
+  justify-content: center; /* center horizontally */
+}
+.search{
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  .searchTerm:focus {
+    color: #00B4CC;
+  }
+
+
+.content {
+  display: flex;
+  justify-content: center; /* center horizontally */
+}
+
+.center {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+}

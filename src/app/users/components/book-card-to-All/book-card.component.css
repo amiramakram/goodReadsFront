@@ -1,0 +1,31 @@
+.fa {
+  font-size: 24px;
+  color: rgb(210, 203, 203);
+  cursor: pointer;
+}
+.fa.active {
+  color: #ED553B;
+}
+.card{
+  transition: all 0.7s ease;
+}
+.card:hover{
+  box-shadow: 5px 5px 10px #333,-5px -5px 10px #333;
+  transform: scale(1.05);
+  
+      }
+      .bookName{
+        color: #3C3484;
+      }
+      .authName{
+color: #ED553B;
+      }
+.avgContainer{
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color:#E1D5D3;
+  border-radius: 50%;
+  display:flex;
+   justify-content:center;
+   align-items:center;
+}

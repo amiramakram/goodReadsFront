@@ -1,0 +1,82 @@
+<!-- <div class="card col-12">
+  <img
+    src="http://localhost:5000/{{ book?.book.img }}"
+    [routerLink]="['/book/', book?.book._id]"
+    class="card-img-top"
+    alt="Hollywood Sign on The Hill"
+    style="border-radius: 20px;"
+  />
+  <div class="card-body">
+    <h4 class="bookName fs-2">{{ book?.book.name }}</h4>
+    <h6 class="card-text">
+      <span class="authName fs-3">
+        {{ book?.book.author.firstName }}
+        {{ book?.book.author.lastName }}
+      </span>
+    </h6>
+    <p class="card-text fs-5">
+      <span>{{ book?.book.category.name }}</span>
+    </p>
+    <div class="avgContainer">
+      <p
+        class="card-text fs-5 d-flex justify-content-center align-items-center"
+      >
+        <span class="AvgRate">{{
+          book?.book.avg_rate | number : "1.1-1"
+        }}</span>
+      </p>
+    </div>
+
+    <div class="fs-1 col-5">
+      <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="setRating()">
+        <i class="fa fa-star fs-5" [ngClass]="{ active: star <= rating }"></i>
+      </span>
+    </div>
+    <div class="selection col-5">
+      <select
+        class="select btn btn-secondary dropdown-toggle"
+        type="button"
+        (click)="setRating()"
+      >
+        <option value="{{ book?.status }}">{{ book?.status }}</option>
+      </select>
+    </div>
+    <div></div>
+  </div>
+</div> -->
+
+<div class=" card col-12" [routerLink]="['/book/', book?.book._id]" >
+  <img src="http://localhost:5000/{{book?.book.img}}"  class="card-img-top "
+    alt="Hollywood Sign on The Hill"  />
+  <div class="card-body">
+    <h4 class="bookName fs-1">{{book.book.name}}</h4>
+    <h6 class="card-text ">
+  <span class="authName fs-3">{{book?.book.author.firstName}} {{book?.book.author.lastName}}</span>
+    </h6>
+    <p class="card-text fs-5">
+      <span >{{book?.book.category.name}}</span>
+   </p>
+    <div class="avgContainer">
+    <p class="card-text fs-5 d-flex justify-content-center align-items-center">
+      <span class="AvgRate">{{book?.book.avg_rate|number: '1.1-1'  }}</span>
+    </p>
+  </div>
+      <div class="fs-1  col-5">
+        <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="setRating()">
+          <i class="fa fa-star fs-5" [ngClass]="{'active': star <= rating}"></i>
+        </span>
+      </div>
+      <div class="selection col-5">
+        <div class=" btn btn-secondary">{{book?.status}}</div>
+
+      </div>
+
+      </div>
+
+</div>
+
+
+
+
+
+

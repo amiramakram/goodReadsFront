@@ -1,0 +1,174 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<!-- first section -->
+<section>
+  <div class="container">
+    <div class="first_section row d-flex justify-content-between">
+      <div data-aos="fade-right" class="col-5 content">
+        <h2 class="title">READS</h2>
+        <p class="description">
+          An website and web platform that helps people find books to read. In
+          addition to reading from a vast library of literary works covering
+          numerous genres, users are able to recommend books to friends, as well
+          as share and review books on their “bookshelves.” Goodreads is also a
+          social media network in that it allows people to view other people’s
+          books.
+        </p>
+      </div>
+
+      <div class="img1 col-md-12 col-lg-6" data-aos="fade-left">
+        <img
+          src="../../../../assets/first.png"
+          style="width: 100%; height: 80vh"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /////////////// popular Book -->
+<section>
+  <div class="container">
+    <div class="row d-flex justify-content-between">
+      <h2
+        style="
+          color: #ed553b;
+          margin-top: 5%;
+          text-align: center;
+          margin-bottom: 5%;
+        "
+        class="col-12"
+      >
+        Our top books
+      </h2>
+      
+      <div
+        *ngFor="let book of popularBook"
+        class="card col-5  col-md-5 col-lg-2"
+         data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine"
+      >
+        <img
+          [routerLink]="['/book/', book._id]"
+          src="http://localhost:5000/{{ book?.img }}"
+          class="card-img-top h-75"
+        />
+        <div class="card-body">
+          <h5
+            class="card-title"
+            style="
+              color: #3c3484;
+              font-size: 110%;
+              text-align: center;
+              margin-left: 5%;
+              font-weight: bold;
+            "
+          >
+            {{ book.name }}
+          </h5>
+          <div class="avgContainer">
+            <p
+              class="card-text fs-3 d-flex justify-content-center align-items-center"
+            >
+              <span *ngFor="let star of [1, 2, 3, 4, 5]">
+                <i
+                  class="stars fa fa-star fs-3"
+                  [ngClass]="{ active: star <= book?.avg_rate }"
+                ></i>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- popular authors -->
+
+<section class="popularAuthor">
+  <div class="container">
+    <div class="row justify-content-between d-flex">
+      <h2 style="color: #ed553b; margin-top: 5%; text-align: center" class="col-12">
+        Our top Authors
+      </h2>
+
+      <div
+        *ngFor="let Author of popularAuthor?.respopularAuthors"
+        class="m-3 col-5 col-md-3 "
+        
+      >
+        <div *ngFor="let Author of Author?._id" >
+          <div class="authorPhoto">
+            <img
+              [routerLink]="['/author/', Author?.ID]"
+              src="http://localhost:5000/{{ Author?.photo }}"
+              class="card-img-top"
+            />
+          </div>
+          <div class="card-body">
+            <h5
+              class="card-title"
+              style="
+                color: black;
+                font-size: 160%;
+                text-align: center;
+                margin-left: 5%;
+                margin-top: 8%;
+              "
+            >
+              {{ Author?.firstName }}
+              {{ Author?.lastName }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- popular categories -->
+<section>
+  <div class="container">
+    <div class="row d-flex justify-content-between" >
+      <h2 style="color: #ed553b; margin-top: 5%; text-align: center" class="col-12">
+        Our top categories
+      </h2>
+      <div *ngFor="let category of popularCategory" class="col-5  col-lg-2 mb-5" data-aos="fade-right"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine" >
+        <div
+          *ngFor="let pCategory of category?.category"
+          style="width: 12rem; height: 18rem;"
+          
+        >
+          <div class="card pCategoryCard w-100 h-100" >
+            <img
+              src="http://localhost:5000/{{ pCategory?.img }}"
+              alt=""
+              class="card-img-top h-100"
+              [routerLink]="['/category/', pCategory._id]"
+            />
+            <div style="background-color: white;" class="titleCategory ">
+            <h1
+              class="card-title "
+              style="
+                color: black;
+                font-size: 220%;
+                text-align: center;
+                margin-left: 5%;
+                margin-top: 8%;
+                font-weight: bold;
+              "
+            >
+              {{ pCategory?.name }}
+            </h1>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

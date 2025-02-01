@@ -1,0 +1,55 @@
+
+<app-search [title]="titlename" (searchresult)="search($event)" (showResult)="showResults($event)" ></app-search>
+
+ <div class="content" role="main">
+<div class="content" role="main" >
+  <div class="center" >
+    <div class="card" >
+      <div class="form-group">
+
+        <ul class="list-group list-group-flush">
+          
+          <li class="list-group-item" *ngFor="let c of characters ">
+            <a [routerLink]="['/category',c._id]" style="text-decoration: none;">{{c.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="container">
+  <div class="row d-flex justify-content-between">
+    <h2 style="color: #ed553b;  margin-top: 5%;text-align: center;"  class="col-12 ">
+      ALL CATEGORIES
+    </h2>
+
+    <div class="card col-5 col-md-2 "  *ngFor="let category of categories"  routerLink="/category/{{ category?._id }}" >
+      <img src="http://localhost:5000/{{category?.img}}" class="card-img-top h-75 " >
+      <div class="card-body">
+        <h5 class="card-title"  style="
+              color: #3c3484;
+              font-size: 160%;
+              text-align: center;
+              margin-left: 5%;
+              font-weight: bold;">
+              {{ category?.name }}
+       </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5 text-center d-flex justify-content-center">
+  <app-pagination
+    [pagination]="_pagination"
+    [next]="next"
+    [prev]="prev"
+    [page]="page"
+    (currPage)="currentPage($event)">
+  </app-pagination>
+</div>
+

@@ -1,0 +1,176 @@
+/* .fa {
+  font-size: 24px;
+  color: rgb(191, 188, 188);
+  cursor: pointer;
+}
+.fa.active {
+  color: #ed553b;
+}
+
+.card {
+  transition: all 0.7s ease;
+  border-radius: 20px;
+}
+.avgContainer {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: #e1d5d3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 10px #333, -5px -5px 10px #333;
+  transform: scale(1.05);
+}
+
+.bookName {
+  color: #3c3484;
+}
+.authName {
+  color: #ed553b;
+}
+.selection select {
+  background-color: #e1d5d3;
+  color: #ed553b;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+.selection::before {
+  content: '\f13a';
+  font-family: FontAwesome;
+  position: absolute;
+  top: 100;
+  right: 30px;
+  width: 20%;
+  height: 0%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+.selection:hover::before {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.selection select option {
+  padding: 30px;
+}
+.selection:hover {
+  padding-bottom: 40px;
+} */
+
+
+
+
+
+
+
+.fa {
+  font-size: 24px;
+  color: rgb(191, 188, 188);
+  cursor: pointer;
+}
+.fa.active {
+  color: #ED553B;
+}
+
+.card{
+  transition: all 0.7s ease;
+  border-radius: 20px;
+ 
+  height: 90vh;
+  
+}
+.card img{
+  height: 40vh;
+  width: 90%;
+  margin-left: 5%;
+border-radius: 10px;
+}
+.avgContainer{
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color:#E1D5D3;
+  border-radius: 50%;
+  display:flex;
+   justify-content:center;
+   align-items:center;
+}
+.card{
+  transition: all 0.7s ease;
+}
+.card:hover{
+  box-shadow: 5px 5px 10px #333,-5px -5px 10px #333;
+  transform: scale(1.05);
+
+
+      }
+
+
+      .bookName{
+        color: #3C3484;
+      }
+      .authName{
+color: #ED553B;
+      }
+      .selection select{
+        /* width: 30rem;
+        height: 2.5rem;
+        background-color:#E1D5D3;
+        color: #ED553B;
+        border-radius: 15px;
+        border: 3px solid rgb(165, 161, 161);
+        transition: all 0.8s ease; */
+        background-color: #E1D5D3;
+        color: #ED553B;
+        padding: 12px;
+        width: 250px;
+        border: none;
+        font-size: 20px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+        -webkit-appearance: button;
+        appearance: button;
+        outline: none;
+      }
+      .selection::before {
+          /* border-color: transparent ;
+          color: #E1D5D3;
+          background-color: #ED553B;
+        transform: scale(1.1); */
+
+        content: "\f13a";
+        font-family: FontAwesome;
+        position: absolute;
+        top: 100;
+        right: 30px;
+        width: 20%;
+        height: 0%;
+        text-align: center;
+        font-size: 28px;
+        line-height: 45px;
+        color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+      .selection:hover::before {
+       color: rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, 0.2);
+
+      }
+      .selection select option {
+        padding: 30px;
+      }
+      .selection:hover {
+        padding-bottom:40px;
+      }

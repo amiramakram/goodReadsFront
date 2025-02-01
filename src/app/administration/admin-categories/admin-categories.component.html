@@ -1,0 +1,135 @@
+
+<div>
+  <app-search [title]="titlename" (searchresult)="search($event)" (showResult)="showResults=false"></app-search>
+</div>
+<div class="container">
+
+  <ng-container *ngIf="isAdded">
+    <div class="alert alert-success alert-dismissible fade show mx-4" role="alert">
+      <span>Added Successfully!</span>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isEdit">
+    <div class="alert alert-success fade show mx-4" role="alert">
+      <span>Edit Successfully!</span>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="error">
+  <div class="alert alert-danger alert-dismissible fade show mx-4" role="alert">
+    <span>Category is already exist!</span>
+  </div>
+  </ng-container>
+
+  <table class="table text-center m-auto mb-2">
+    <thead style=" background-color: #18AF9A;">
+      <tr>
+        <th style="background-color: rgb(237, 237, 237);" colspan="3">
+
+          <div class="container">
+            <app-pagination
+            [pagination]="_pagination"
+            [next]="next"
+            [prev]="prev"
+            [page]="page"
+            (currPage)="currentPage($event)"
+            >
+            </app-pagination>
+          </div>
+
+        </th>
+
+        <th style=" background-color: rgb(237, 237, 237);">
+          <button class="btn add" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-sharp fa-solid fa-circle-plus"></i></button>
+        </th>
+        </tr>
+
+      <tr class="text-white">
+        <th>#</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <ng-container *ngFor="let category of listCategories; let i=index;">
+        <tr>
+          <td class="px-1"> {{i+1}}</td>
+          <td style="width: 4%;">
+            <img src="http://localhost:5000/{{category?.img}}" alt="" style="height: 5vh;
+            width: 100%;">
+          </td>
+          <td>{{category.name}}</td>
+          <td>
+            <button class="btn" (click)="deleteCategory(category._id)">
+              <i class="fa fa-trash text-danger"></i></button>
+            <button class="btn" data-bs-toggle="modal" data-bs-target="#EditModal"
+             (click)="showCategory(category)">
+              <i class="fa fa-edit text-primary"></i>
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+
+
+    </tbody>
+  </table>
+</div>
+
+
+<!---------------------Add Category----------------------------->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog mt-5">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST" [formGroup]="formCategory" (ngSubmit)="addCategory()">
+      <div class="modal-body">
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Category Name"
+            formControlName="name" name="name"
+            [class.is-valid]="nameCategory?.valid"
+            [class.is-invalid]="nameCategory?.invalid"
+             >
+          <div class="alert alert-warning" [hidden]="nameCategory?.valid || nameCategory?.untouched" >
+            <small *ngIf="nameCategory?.errors?.['required']">
+              * Name category is required </small>
+          </div>
+          </div>
+
+
+          <div class="form-group">
+            <input type="file" class="form-control"  (change)="uploadImage($event)"
+            name="image" formControlName="image" accept=".png,.jpg,.jpeg"
+            [class.is-valid]="image?.valid"
+            [class.is-invalid]="image?.invalid" >
+            <div class="alert alert-warning" [hidden]="image?.valid || image?.untouched" >
+              <small *ngIf="image?.errors?.['required']">Image is required </small>
+            </div>
+          </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn" style="background: #18AF9A"
+        data-bs-dismiss="modal"
+        [disabled]="formCategory.invalid">Save</button>
+      </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+<!---------------------EditCategory----------------------------->
+<app-admin-category-edit
+ (isEdit)="receivedEditCategory($event)" (isError)="receivedErrorCategory($event)"
+[category]="ECategory"></app-admin-category-edit>

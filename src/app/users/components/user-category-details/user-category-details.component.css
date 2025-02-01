@@ -1,0 +1,33 @@
+.avgContainer{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color:#E1D5D3;
+    border-radius: 50%;
+    display:flex;
+     justify-content:center;
+     align-items:center;
+  }
+  .card{
+    transition: all 0.7s ease;
+    border-radius: 20px;
+   
+    height: 70vh;
+    
+  }
+  .card img{
+    height: 40vh;
+    width: 90%;
+    margin-left: 5%;
+  border-radius: 10px;
+  }
+  
+.card:hover{
+    box-shadow: 5px 5px 10px #333,-5px -5px 10px #333;
+    transform: scale(1.05);
+  
+  
+        }
+
+ .categoryImg{
+    border-radius: 12px;
+ }       

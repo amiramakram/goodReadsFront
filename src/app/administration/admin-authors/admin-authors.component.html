@@ -1,0 +1,89 @@
+
+
+  <div>
+    <app-search [title]="titlename" (searchresult)="search($event)" (showResult)="showResults=false"></app-search>
+  </div>
+
+<div class="container mt-2">
+  <ng-container *ngIf="isAdded">
+    <div class="alert alert-success alert-dismissible fade show mx-4" role="alert">
+      <span>Added Successfully!</span>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isEdit">
+    <div class="alert alert-success fade show mx-4" role="alert">
+      <span>Edit Successfully!</span>
+    </div>
+  </ng-container>
+
+  <!--<ng-container *ngIf="error">
+  <div class="alert alert-danger alert-dismissible fade show mx-4" role="alert">
+    <span>Category is already exist!</span>
+  </div>
+  </ng-container>-->
+  <table class="table text-center m-auto mb-2 ">
+    <thead style=" background-color: #18AF9A;">
+      <tr>
+        <th style="background-color: rgb(237, 237, 237);" colspan="4">
+
+          <div class="container">
+            <app-pagination
+            [pagination]="_pagination"
+            [next]="next"
+            [prev]="prev"
+            [page]="page"
+            (currPage)="currentPage($event)"
+            >
+            </app-pagination>
+          </div>
+
+        </th>
+
+        <th style=" background-color: rgb(237, 237, 237);" colspan="2">
+          <button class="btn add" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-sharp fa-solid fa-circle-plus"></i></button>
+        </th>
+        </tr>
+      <tr class="text-white">
+        <th>#</th>
+        <th>Photo</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Date Of Birth</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let author of listAuthors; let i=index;">
+        <tr>
+          <td class="px-1">{{i+1}}</td>
+          <td  style="width: 5%; height: 10vh;">
+            <img src="http://localhost:5000/{{author.photo}}" alt="" class="w-100 h-100 rounded-circle">
+          </td>
+          <td>{{author.firstName}}</td>
+          <td>{{author.lastName}}</td>
+          <td>{{author.dateOfBirth | date: 'dd/MM/YYYY'}}</td>
+
+          <td>
+            <button class="btn" (click)="deleteAuthor(author._id)"><i class="fa fa-trash text-danger"></i></button>
+            <button class="btn"  data-bs-toggle="modal" data-bs-target="#EditModal"><i class="fa fa-edit text-primary" (click)="showAuthor(author)"
+              ></i></button>
+          </td>
+        </tr>
+      </ng-container>
+
+
+
+    </tbody>
+  </table>
+</div>
+
+
+<!---------------------Add Authors----------------------------->
+<app-admin-authors-add (isAdded)="receivedNewAuthor($event)"></app-admin-authors-add>
+
+
+
+<!---------------------Edit Authors----------------------------->
+
+<app-admin-authors-edit (isEdit)="receivedEditAuthor($event)" [author]="EAuthor"></app-admin-authors-edit>

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-brand btn" type="button" (click)="toggle()">
+      <i class="fa-solid fa-bars"></i>
+    </button >
+
+  <div class="dropdown">
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"    data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="assets/admin.png" alt=""><span> {{firstName}}  {{lastName}}</span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item"  style="color:#18AF9A;" (click)="logout()">
+        <i class="fa-solid fa-right-from-bracket" ></i>
+        Logout</a></li>
+    </ul>
+</div>
+
+  </div>
+</nav>

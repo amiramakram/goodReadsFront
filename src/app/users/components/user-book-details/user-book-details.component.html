@@ -1,0 +1,281 @@
+<!-- ///////////////////////////////////////////////////// -->
+
+
+<!-- <div class="container-fluid pb-5">
+=======
+
+<div class="container-fluid pb-5" >
+
+  <div class="row px-xl-5">
+    <div class="col-lg-5 mb-30">
+      <div id="" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner bg-light">
+          <div class="carousel-item active">
+            <img
+              class="w-100 h-100"
+              src="http://localhost:5000/{{book?.img}}"
+              alt="Image"
+            />
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-7 h-auto mb-30">
+      <div class="h-100 bg-light p-30">
+        <h3>Book Name: "{{ book?.name }}"</h3>
+        <h3>
+          Author: "{{ book?.author.firstName }} {{ book?.author.lastName }}"
+        </h3>
+        <h3>Category: "{{ book?.category.name }}"</h3>
+        <h5 class="font-weight-semi-bold mb-4">
+          Average rate: :
+          <span class="text-success">{{
+            book?.avg_rate | number : "1.0-0"
+          }}</span>
+        </h5>
+        <h3>Description</h3>
+        <p class="mb-4">{{ book?.summary }}</p>
+        <h5 class="font-weight-semi-bold mb-4">
+          rating:
+
+           <span class="text-success"> {{ book.bookUser.rating }}</span>
+
+          <span class="text-success"> {{ book?.bookUser.rating }}</span>
+
+        </h5>
+        <div class="fs-1" (click)="addRating()">
+          rating:
+          <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="getRating(star)">
+            <i
+              class="fa fa-star fs-3"
+              [ngClass]="{ active: star <= rating }"
+            ></i>
+          </span>
+          <div class="fs-1">
+            Status:
+            <select
+              class="select btn btn-secondary dropdown-toggle"
+              type="button"
+              value="{{book?.bookUser.status}}"
+              (click)="add($event)"
+            >
+              <option value="Read">Read</option>
+              <option value="Reading">Reading</option>
+              <option value="wantToRead">Want To Read</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row px-xl-5">
+    <div class="col">
+      <div class="bg-light p-30">
+        <div class="mb-4">
+
+
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="media mb-4" *ngFor="let review of book.reviews">
+                 <p>like----------------{{ review | json }}</p>
+
+
+          <h3 class="text-dark">Reviews for "{{ book?.name }}"</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="mb-4">
+                review for author name "{{ book?.author?.firstName }}
+                {{ book?.author?.lastName }}"
+              </h4>
+              <div class="media mb-4" *ngFor="let review of book?.reviews">
+                <p>{{ review| json}}</p>
+
+                <img
+                  src="http://localhost:5000/{{ review?.user.img }}"
+                  alt="Image"
+                  class="img-fluid mr-3 mt-1"
+                  style="width: 45px"
+                />
+                <div class="media-body">
+                  <h6 class="fw-bold text-capitalize">
+
+                    user name:{{ review.user.first_name }}
+                    {{ review.user.last_name }}<small> </small>
+                  </h6>
+                  <div>
+                    <p>{{ review.comment }}</p>
+                    <p>{{ review.date }}</p>
+                    user name:{{ review?.user.first_name}} {{ review?.user.last_name
+                    }}<small> </small>
+                  <div >
+                    <p>{{ review?.comment }}</p>
+                    <p>{{ review?.date }}</p>
+                    <div class="fs-1">
+                      like:
+                      <select
+                        class="select btn btn-secondary dropdown-toggle"
+                        type="button"
+                        value="{{ review?.changeLike.like }}"
+                        (click)="setLikeToReview($event, review)"
+                      >
+                        <option value="true">like</option>
+                        <option value="false">dislike</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4 class="mb-4">Leave a review</h4>
+
+              <form
+                [formGroup]="reviewForm"
+                (ngSubmit)="setReview()"
+                novalidate
+                class="form-group"
+              >
+                <div class="form-group">
+                  <label for="message">Your Review *</label>
+                  <textarea
+                    formControlName="description"
+                    id="message"
+                    cols="30"
+                    rows="5"
+                    class="form-control"
+                  ></textarea>
+                </div>
+
+                <div class="form-group mb-0">
+                  <input
+                    type="submit"
+                    value="Leave Your Review"
+                    class="btn bg-primary text-white px-3"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Begin -->
+
+<section class="mb-5">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-4 my-5 p-0  " style="box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);border-radius: 15px;height: 55vh;" >
+        <img
+
+          src="http://localhost:5000/{{book?.img}}"
+          alt="Image"
+          style="border-radius: 15px; height: 55vh; width: 30vw;"
+        />
+      </div>
+      <div class="col-5 p-5">
+        <h2 style="color:#ED553B; font-size: 60px;">{{ book?.name }}</h2>
+        <h4 style="color:#3C3484; font-size: 40px;">{{ book?.author?.firstName }} {{ book?.author?.lastName }}</h4>
+        <p style="font-size: 30px;">{{ book?.category?.name }}</p>
+        <p>Book overview :</p>
+        <div class="avgContainer mb-5">
+          <p>
+            <span class="AvgRate ">{{ book?.avg_rate|number:'1.1-1' }}</span>
+          </p>
+        </div >
+        <p>
+          {{ book?.summary }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container mb-5">
+    <div class="row justify-content-around">
+      <div class=" selection  col-7" (click)="addRating()">
+        <select
+        type="button"
+        value="{{ book?.bookUser?.status }}"
+        (click)="add($event)">
+        <option value="Read">Read</option>
+        <option  value="Reading">Reading</option>
+        <option  value="wantToRead">Want To Read</option>
+      </select>
+      </div>
+      <div class="rating col-5" (click)="addRating()">
+        <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="getRating(star)">
+          <i class="stars fa fa-star fs-3" [ngClass]="{ active: star <= rating }"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- comments -->
+<section>
+  <div class="container">
+  <div class="row d-flex mb-5  Comment">
+    <div class="col-md-8 col-lg-7">
+      <div class="card shadow-0 border" style="background-color:#E1D5D3;">
+        <div class="card-body p-4">
+          <form
+                [formGroup]="reviewForm"
+                (ngSubmit)="setReview()"
+                novalidate
+                class="form-group"
+              >
+          <div class="form-outline mb-4">
+
+            <input
+            formControlName="description"
+
+            class="form-control" placeholder="Type comment..." />
+            <input class="form-label"  type="submit" value="+ Add a note">
+          </div>
+  </form>
+          <div class="card mb-3" style="overflow: scroll; height: 300px;">
+            <div class="card-body">
+              <p>Type your note, and hit enter to add it</p>
+              <div class="d-flex justify-content-between" *ngFor="let review of book?.reviews">
+                <div class="d-flex flex-row ">
+                  <img src="{{ review?.user?.img }} ../../../../../../assets/download.jfif"
+                  alt="Image"
+                  class=" commentImg img-fluid mr-1 mt-1"
+                 alt="avatar"  />
+                  <p class="small mb-0 ms-2" >{{ review?.user?.first_name }}
+                    {{ review?.user?.last_name }} <br> {{ review?.comment }} <br>{{ review?.date |date:'medium'}}</p>
+
+                </div>
+
+                <div class="d-flex justify-content-between" >
+                  <div class="mt-2" >
+                    <select
+                    class="select btn btn-secondary dropdown-toggle"
+                    type="button"
+                    value="{{ review?.changeLike?.like }}">
+                    <option value="true">like</option>
+                    <option value="false">dislike</option>
+                  </select>
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+
+                        <!-- <i class="fa-solid fa-thumbs-up"></i> -->
+
+

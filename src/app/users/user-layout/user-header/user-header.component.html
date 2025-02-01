@@ -1,0 +1,129 @@
+  <!-- <nav class="navbar navbar-expand-lg navBar">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home"><img  src="../../../../assets/logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navItames" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="/home">Home</a>
+          </li>
+          <div class="vl"></div>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Aboutus">ABOUTUS</a>
+          </li>
+          <div class="vl"></div>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/category" routerLinkActive="active">CATEGORIES</a>
+          </li>
+          <div class="vl"></div>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/author" routerLinkActive="active">AUTHORS</a>
+          </li>
+          <div class="vl"></div>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/book" routerLinkActive="active">BOOK</a>
+          </li>
+        </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register" routerLinkActive="active" *ngIf="!isLoginUser">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active" *ngIf="!isLoginUser">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link Logout"  routerLinkActive="active"  *ngIf="isLoginUser" (click)="isLogOut()">Logout</a>
+            </li> -->
+            <!-- <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"    data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/admin.png" alt="">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+               <li> <span> Ibrahim Salah</span></li>
+                <li><a class="dropdown-item" href="#" style="color:#18AF9A;">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                  Logout</a></li>
+              </ul>
+          </div> -->
+          <!-- </ul>
+      </div>
+    </div>
+  </nav> -->
+
+
+
+
+
+
+
+  <!-- Final header -->
+
+
+<!-- navbar-expand-lg ==> دي علشان الريسبونسف بتاع الشاشات -->
+ <!-- bg-body-tertiary دي لون الباكجروند -->
+ <section  class="navbarBackground">
+ <div class="container ">
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand " routerLink="/home"><img class="navLogo"  src="../../../../assets/logo.png" alt=""></a>
+      <!--  دي زرار المنيو اللي بتظهرلي  في الشاشات الصغيرة-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <span class="navbar-toggler-icon "> </span> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>
+
+
+
+      <div class="collapse navbar-collapse navLinks" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/home">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Aboutus" routerLinkActive="active">ABOUTUS</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " routerLink="/category" >
+            CATEGORIES
+            </a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/author">AUTHORS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/allBooks">BOOKS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/books">MY BOOKS</a>
+          </li>
+
+
+        </ul>
+        <form class="d-flex " >
+          <button class="btn btn-outline-success login" type="submit" routerLink="/login" *ngIf="!isLoginUser" >LOGIN</button>
+        </form>
+        <!-- <form class="d-flex " *ngIf="isLoginUser" (click)="isLogOut()">
+          <button class="btn btn-outline-success login">LOGOUT</button>
+        </form> -->
+        <div class="dropdown" *ngIf="isLoginUser">
+          <button class="btn dropdown-toggle logout" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"style="color:#E1D5D3;">
+            <img src="assets/admin.png" alt=""><span> {{firstName}} {{lastName}}</span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" (click)="isLogOut()">
+            <li><a class="dropdown-item" style="color:#ED553B;cursor: pointer;">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              Logout</a></li>
+          </ul>
+      </div>
+      </div>
+    </div>
+  </nav>
+</div>
+</section>
+
+

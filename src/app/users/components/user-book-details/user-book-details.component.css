@@ -1,0 +1,93 @@
+.fa {
+  font-size: 24px;
+  color: rgb(217, 210, 210);
+  cursor: pointer;
+}
+.fa.active {
+  color: #ed553b;
+}
+.selection select {
+  /* width: 30rem;
+  height: 2.5rem;
+  background-color:#E1D5D3;
+  color: #ED553B;
+  border-radius: 15px;
+  border: 3px solid rgb(165, 161, 161);
+  transition: all 0.8s ease; */
+  background-color: #e1d5d3;
+  color: #ed553b;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+.selection::before {
+  /* border-color: transparent ;
+    color: #E1D5D3;
+    background-color: #ED553B;
+  transform: scale(1.1); */
+
+  content: '\f13a';
+  font-family: FontAwesome;
+  position: absolute;
+  top: 100;
+  right: 67.5%;
+  width: 20%;
+  height: 0%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+.selection:hover::before {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.selection select option {
+  padding: 30px;
+}
+.selection:hover {
+  padding-bottom: 40px;
+}
+
+/* option{
+  color:#ED553B;
+  background-color: #E1D5D3;
+} */
+.form-label {
+  transition: all 0.7s ease;
+  background-color: #3c3484;
+  margin-top: 10px;
+  border: none;
+  border-radius: 15px;
+  color: #e1d5d3;
+}
+.form-label:hover {
+  box-shadow: 3px 3px 5px #5b5b5b, -3px -3px 5px #5b5b5b;
+  transform: scale(1.05);
+}
+.Comment {
+  font-size: 20px;
+}
+.commentImg {
+  border-radius: 50px;
+  width: 15%;
+  height: 6vh;
+}
+.avgContainer {
+  height: 4rem;
+  width: 4rem;
+  background-color: #e1d5d3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding-top: 10px;
+}

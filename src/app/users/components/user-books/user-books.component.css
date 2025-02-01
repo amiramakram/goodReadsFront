@@ -1,0 +1,86 @@
+/* .example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+} */
+.fa {
+  font-size: 24px;
+  color: gray;
+  cursor: pointer;
+}
+.fa.active {
+  color: gold;
+}
+.buttons{
+  width: 7%;
+  height: 10vh;
+  border-radius: 50px;
+  background-color: #ED553B;
+  color: #E1D5D3;
+  justify-content: center;
+  text-align: center;
+  padding-top: 18px;
+  margin-right: 20px;
+  transition: all 0.7s ease;
+  box-shadow: 5px 5px 10px #9b9999,-5px -5px 10px #9b9999;
+  font-weight: bold;
+}
+
+.buttons:hover{
+  box-shadow: 8px 8px 10px #333,-5px -5px 10px #333;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+@media(max-width:1034px){
+  .buttons{
+  width: 15%;
+
+  } 
+}
+
+
+.card{transition: all 0.7s ease;}
+.card:hover{box-shadow: 5px 5px 10px #333,-5px -5px 10px #333;
+    transform: scale(1.05);
+    cursor: pointer;
+    }
+
+.wrap{
+    display: flex;
+  justify-content: center; /* center horizontally */
+}
+.search{
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  .searchTerm:focus {
+    color: #00B4CC;
+  }
+
+
+.content {
+  display: flex;
+  justify-content: center; /* center horizontally */
+}
+
+.center {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+}

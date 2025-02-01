@@ -1,0 +1,49 @@
+<div class="container mb-5">
+
+    <div class="container d-flex justify-content-center ">
+
+        <div class="card text-center bg-white border-0" *ngIf="author" style="margin-top: 15%;height: 50vh;">
+            <div class="card-body text-dark">
+            <div class="img-area">
+
+              <img src="http://localhost:5000/{{ author?.photo }}"
+
+
+
+              alt="project1" class="img-fluid" style="width:100%; height: 38vh;border-radius: 50px;">
+            </div>
+                <h3 class="text-center m-4" style="color: #3c3484;">{{author?.firstName}} {{ author?.lastName}}</h3>
+                <h3 class="text-center" style="color: #ed553b;">{{author?.dateOfBirth}}</h3>
+           </div>
+          </div>
+
+    </div>
+
+    <div class="m-5 " style="width: 15rem; height: 5rem; border-radius:50% ; background-color: #ED553B;">
+       <h2 class="text-center pt-3 text-white">Books</h2>
+    </div>
+
+    <div class="container">
+        <div class="row ">
+
+           <div class="col-12 col-md-12 col-lg-4 mt-5"
+        *ngFor="let book of author?.books; index as i; "[attr.data-index]="i">
+        <app-book-card [book]="book"></app-book-card>
+    </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="container mt-5 text-center d-flex justify-content-center">
+    <app-pagination
+      [pagination]="_pagination"
+      [next]="next"
+      [prev]="prev"
+      [page]="page"
+      (currPage)="currentPage($event)"
+    >
+    </app-pagination>
+  </div>

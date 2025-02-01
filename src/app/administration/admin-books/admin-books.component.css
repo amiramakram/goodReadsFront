@@ -1,0 +1,55 @@
+table
+{
+ /*width: 1140px;*/
+ width: 100%;
+}
+
+tr td , tr th
+{
+  padding: 1% 0%;
+}
+
+tbody tr:nth-child(odd)
+{
+
+  background-color: gainsboro;
+}
+
+td button i
+{
+  font-size: 1.3rem;
+}
+.add
+{
+  margin-left: 40%;
+}
+.add i
+{
+  font-size: 2rem;
+  color:#18AF9A;
+}
+
+.form-group
+{
+  margin-top: 4%;
+}
+
+.modal-header
+{
+  background-color: #18AF9A;
+  color: white;
+}
+.modal button
+{
+  color: white;
+}
+
+.ng-valid:not(form)
+{
+  border-left: 5px solid green;
+}
+
+.ng-invalid:not(form)
+{
+  border-left: 5px solid rgb(149, 8, 8);
+}

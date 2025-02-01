@@ -1,0 +1,16 @@
+
+.content {
+    display: flex;
+    justify-content: center; /* center horizontally */
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center; /* center vertically */
+  }
+.card{transition: all 0.7s ease;}
+.card:hover{box-shadow: 5px 5px 10px #333,-5px -5px 10px #333;
+    transform: scale(1.05);
+    cursor: pointer;
+    }

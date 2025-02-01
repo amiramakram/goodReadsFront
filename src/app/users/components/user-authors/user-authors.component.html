@@ -1,0 +1,54 @@
+
+<app-search [title]="titlename" (searchresult)="search($event)" (showResult)="showResults=false"></app-search>
+  <div class="content " role="main" >
+    <div class="center">
+      <div class="card">
+        <div class="form-group">
+          <ul class="list-group list-group-flush" >
+            <li class="list-group-item" *ngFor="let c of characters ">
+              <a  [routerLink]="['/author',c.ID]" style="text-decoration: none;">{{c.firstName}} {{c.lastName}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Begin -->
+<div class="container">
+  <div class="row">
+    <h2 style="color: #ed553b; margin-left: 40%; margin-top: 5%">
+      ALL AUTHORS
+    </h2>
+
+    <div class="card m-3 author" style="width: 18rem; height: 23rem;"*ngFor="let author of authors.data" [routerLink]="['/author',author.ID]" >
+
+      <img src="http://localhost:5000/{{author?.photo}}" class="card-img-top h-75 " >
+      <div class="card-body">
+        <h5 class="card-title"  style="
+        color: #3c3484;
+        font-size: 160%;
+        text-align: center;
+        margin-left: 5%;
+        font-weight: bold;
+      ">{{author.firstName}} {{ author.lastName}}</h5>
+
+      </div>
+
+    </div>
+  </div>
+
+  
+</div>
+<div class="container mt-5 text-center d-flex justify-content-center">
+  <app-pagination
+    [pagination]="_pagination"
+    [next]="next"
+    [prev]="prev"
+    [page]="page"
+    (currPage)="currentPage($event)"
+  >
+  </app-pagination>
+</div>
+
+

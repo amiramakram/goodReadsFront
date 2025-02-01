@@ -1,0 +1,109 @@
+<div class="container-fluid mt-3">
+
+  <div class="row total">
+    <div class="col-lg-4 col-12 mb-3 mt-3">
+      <div class="card overflow-hidden sales-card bg-primary bg-gradient pt-3">
+        <div class="px-3 pt-2 pb-4 row">
+          <div class="col-lg-8">
+            <h5>Total Authors</h5>
+          </div>
+         <div class="col-lg-4">
+
+          <p> <i class="fas fa-arrow-circle-up text-white"></i> {{totalAuthors}}</p>
+         </div>
+
+        </div>
+
+        <span id="line1">
+          <canvas width="297" height="30"></canvas>
+        </span>
+      </div>
+
+    </div>
+
+
+
+    <div class="col-lg-4 col-12 mb-3 mt-3">
+      <div class="card overflow-hidden sales-card bg-danger bg-gradient pt-3">
+        <div class="px-3 pt-2 pb-4 row">
+          <div class="col-lg-8">
+            <h5>Total Books</h5>
+          </div>
+         <div class="col-lg-4">
+
+          <p> <i class="fas fa-arrow-circle-up text-white"></i> {{totalBooks}}</p>
+         </div>
+
+        </div>
+
+        <span id="line1">
+          <canvas width="297" height="30"></canvas>
+        </span>
+      </div>
+
+    </div>
+
+
+    <div class="col-lg-4 col-12 mb-3 mt-3">
+      <div class="card overflow-hidden sales-card bg-success bg-gradient pt-3">
+        <div class="px-3 pt-2 pb-4 row">
+          <div class="col-lg-8">
+            <h5>Total Users</h5>
+          </div>
+         <div class="col-lg-4">
+
+          <p> <i class="fas fa-arrow-circle-up text-white"></i> {{totalUsers}}</p>
+         </div>
+
+        </div>
+
+        <span id="line1">
+          <canvas width="297" height="30"></canvas>
+        </span>
+      </div>
+
+    </div>
+
+    </div>
+
+
+  <div class="row mt-4 mb-3 p-author">
+    <div class="col-lg-5 mt-2">
+      <div class="card">
+        <h5 class="mb-5">popular author</h5>
+
+        <ng-container *ngFor="let author of topAuthors">
+          <div class="row pt-2">
+            <div class="col-8 row">
+              <div class="col-4">
+                <img src='http://localhost:5000/{{author._id[0].photo}}' alt="">
+
+              </div>
+              <div class="col-7">
+                <h6 style="font-size: 14px;">{{author._id[0].firstName}} {{author._id[0].lastName}}</h6>
+                <p style="font-size: 13px;">{{author._id[0].books.length}} books</p>
+              </div>
+            </div>
+            <div class="col-4">
+              <span *ngFor="let star of [1, 2, 3, 4, 5]" >
+                <i class="fa fa-star" [ngClass]="author.avg>=star?'text-warning':''"></i>
+              </span>
+
+            </div>
+
+          </div>
+          <hr>
+        </ng-container>
+
+
+      </div>
+    </div>
+
+    <div class="col-lg-6 mt-3 ">
+      <app-admin-chart></app-admin-chart>
+    </div>
+
+  </div>
+
+
+</div>

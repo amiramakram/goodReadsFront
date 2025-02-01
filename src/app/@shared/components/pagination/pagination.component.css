@@ -1,0 +1,123 @@
+/*.btn
+{
+  border-radius: 0%;
+  -webkit-border-radius: 0%;
+  -moz-border-radius: 0%;
+  -ms-border-radius: 0%;
+  -o-border-radius: 0%;
+  padding: 2% 5%;
+  outline: none;
+}*/
+/* .page-item
+{
+  border: 1px solid gainsboro;
+  border-radius: 0%;
+  -webkit-border-radius: 0%;
+  -moz-border-radius: 0%;
+  -ms-border-radius: 0%;
+  -o-border-radius: 0%;
+  padding: 2% 5%;
+  outline: none;
+} */
+/*.Previous{
+  width: 3.5%;
+  height: 5vh;
+  background-color: #ED553B;
+  text-align: center;
+  border-radius: 50%;
+  color: #E1D5D3;
+  margin-left: 47%;
+
+}
+.Next{
+  width: 3.5%;
+  height: 5vh;
+  background-color: #ED553B;
+  text-align: center;
+  border-radius: 50%;
+  color: #E1D5D3;
+  margin-left: 2%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}*/
+
+/*.active
+{
+  width: 3%;
+  height: 4vh;
+  background-color: #f88773;
+  text-align: center;
+  border-radius: 50%;
+  color: #E1D5D3;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.active button
+{
+  color: white;
+}*/
+
+
+.pagination li
+{
+
+  margin: 0 5px;
+}
+.pagination li button
+{
+
+  text-decoration: none;
+  font-size: .8em;
+
+
+}
+.page-link
+{
+  color: black;
+  font-weight: 500;
+
+}
+.page-item
+{
+  box-sizing:none;
+}
+
+.Previous .page-link, .Next .page-link
+{
+  background-color:#ED553B;
+  border-radius: 60%;
+  -webkit-border-radius: 60%;
+  -moz-border-radius: 60%;
+  -ms-border-radius: 60%;
+  -o-border-radius: 60%;
+  cursor: pointer;
+  color: white;
+}
+
+.Current
+{
+  background-color: transparent;
+  border-radius: 60%;
+  -webkit-border-radius: 60%;
+  -moz-border-radius: 60%;
+  -ms-border-radius: 60%;
+  -o-border-radius: 60%;
+  cursor: pointer;
+}
+
+
+.active
+{
+  background-color:  #ffa798;
+  color: white;
+}
+
+.disabled
+{
+  background-color:#ED553B;
+  opacity: .7;
+}

@@ -1,0 +1,54 @@
+
+
+<div class="container mb-5">
+  <div class="d-flex justify-content-center">
+    <div
+      class=" text-center bg-white border-0 col-12 col-md-12 col-lg-4 mt-5 mb-5"
+
+    >
+<div>
+  <img class="categoryImg col-12 mt-5 " src="http://localhost:5000/{{ categories?.img }}" alt="">
+</div>
+      <div class="card-body ">
+
+        <h3 class="text-center m-4 " style="color: #3c3484">
+          {{ categories?.name }}
+        </h3>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div
+        class="col-12 col-md-12 col-lg-4 mt-5 mb-5"
+        *ngFor="let book of categories?.books" >
+        <div class="card col-12">
+          <img [routerLink]="['/book/', book?.book._id]"
+            src="http://localhost:5000/{{ book?.book.img }}"
+            class="card-img-top"
+            alt="Hollywood Sign on The Hill"
+            style="height: 50vh"
+          />
+          <div class="card-body">
+            <h4 class="bookName fs-1" style="color:#3c3484">{{ book?.book?.name }}</h4>
+
+
+            <div class="avgContainer">
+              <p
+                class="card-text fs-5 d-flex justify-content-center align-items-center"
+              >
+                <span class="AvgRate">{{
+                  book?.book?.avg_rate | number : "1.1-1"
+                }}</span>
+              </p>
+            </div>
+            <div class="fs-1 col-5">
+            </div>
+            <div class="selection col-5">
+                <div class=" btn btn-secondary ">{{book.status }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

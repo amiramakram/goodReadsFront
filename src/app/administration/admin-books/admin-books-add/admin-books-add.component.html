@@ -1,0 +1,88 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog mt-5">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="formBook" (ngSubmit)="addBook()">
+      <div class="modal-body">
+          <div class="form-group">
+
+            <input type="text" class="form-control" name="name"
+            placeholder="Book Name" formControlName="name"
+            [class.is-valid]="name?.valid"
+            [class.is-invalid]="name?.errors?.['required']"
+            >
+
+            <div class="alert alert-warning" [hidden]="name?.valid || name?.untouched" >
+              <small *ngIf="name?.errors?.['required']">Name is required </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <select name="category"  class="form-select" formControlName="category"
+            [class.is-valid]="category?.valid"
+            [class.is-invalid]="category?.invalid"
+            >
+              <option  value="" disabled selected hidden>--Choose Category--</option>
+              <ng-container *ngFor="let category of categoryList">
+                <option [value]="category._id">{{category.name}}</option>
+              </ng-container>
+            </select>
+            <div class="alert alert-warning" [hidden]="category?.valid || category?.untouched" >
+              <small *ngIf="category?.errors?.['required']">Category is required </small>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <select name="author"  class="form-select" formControlName="author"
+            [class.is-valid]="author?.valid"
+            [class.is-invalid]="author?.invalid"
+            >
+              <option value="" disabled selected hidden>--Choose Author--</option>
+              <ng-container *ngFor="let author of authorList">
+                <option [value]="author._id">{{author.firstName}} {{author.lastName}}</option>
+              </ng-container>
+            </select>
+            <div class="alert alert-warning" [hidden]="author?.valid || author?.untouched" >
+              <small *ngIf="author?.errors?.['required']">Author is required </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea type="text" class="form-control" placeholder="Summary"
+            name="summary"
+            formControlName="summary"
+            [class.is-valid]="summary?.valid"
+            [class.is-invalid]="summary?.invalid">
+            </textarea>
+
+            <div class="alert alert-warning" [hidden]="summary?.valid || summary?.untouched" >
+              <small *ngIf="summary?.errors?.['required']">Summary is required </small>
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+            <input type="file" class="form-control"  (change)="uploadImage($event)"  name="image" formControlName="image" accept=".png,.jpg,.jpeg"
+            [class.is-valid]="image?.valid"
+            [class.is-invalid]="image?.invalid"  >
+            <div class="alert alert-warning" [hidden]="image?.valid || image?.untouched" >
+              <small *ngIf="image?.errors?.['required']">Image is required </small>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn" style="background: #18AF9A"
+        data-bs-dismiss="modal" [disabled]="formBook.invalid"
+        >Save</button>
+      </div>
+      </form>
+    </div>
+
+  </div>
+</div>

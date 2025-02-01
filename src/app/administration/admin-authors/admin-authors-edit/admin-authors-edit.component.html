@@ -1,0 +1,68 @@
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog mt-5">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Author</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="editAuthor" (ngSubmit)="edit()">
+      <div class="modal-body">
+
+          <div class="form-group">
+
+            <input type="text" class="form-control" placeholder="FirstName" formControlName="fName"
+            [class.is-invalid]="EfirstName?.invalid"
+            [class.is-valid]="EfirstName?.valid"
+            >
+            <div class="alert alert-warning" [hidden]="EfirstName?.valid || EfirstName?.untouched" >
+              <small *ngIf="EfirstName?.errors?.['required']">First Name is required </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <input type="text" class="form-control" placeholder="LastName"
+             formControlName="lName"
+            [class.is-invalid]="ElastName?.invalid"
+            [class.is-valid]="ElastName?.valid"
+            >
+            <div class="alert alert-warning" [hidden]="ElastName?.valid || ElastName?.untouched" >
+              <small *ngIf="ElastName?.errors?.['required']">Last Name is required </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <input type="date" class="form-control" placeholder="DB"
+            formControlName="dateBirth"
+            [class.is-invalid]="EdateBirth?.invalid"
+            [class.is-valid]="EdateBirth?.valid"
+            >
+            <div class="alert alert-warning" [hidden]="EdateBirth?.valid || EdateBirth?.untouched" >
+              <small *ngIf="EdateBirth?.errors?.['required']">Date Birth is required </small>
+            </div>
+          </div>
+            <div class="form-group">
+            <input type="file" class="file-input"
+            formControlName="image" name="image" accept=".png,.jpg,.jpeg"
+             (change)="uploadImage($event)" >
+
+             <ng-container *ngIf="author?.photo">
+              <img src="http://localhost:5000/{{author?.photo}}" alt="" style="width:15%; border:1px solid black; height: 7vh;" >
+             </ng-container>
+
+
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn" style="background: #18AF9A"
+        data-bs-dismiss="modal"
+        >Save</button>
+      </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,54 @@
+
+  <!-- search -->
+  <app-search [title]="titlename" (searchresult)="search($event)"
+  (showResult)="showResults($event)">
+</app-search>
+
+
+  <div class="content" role="main">
+
+    <div class="center" >
+      <div class="card" >
+        <div class="form-group">
+          <ul class="list-group list-group-flush">
+           <li class="list-group-item" *ngFor="let c of characters ">
+              <a [routerLink]="['/book',c._id]" style="text-decoration: none;">{{c.name}}</a>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end search -->
+
+<div class="container">
+
+  <div class="popular_books">
+    <h1 style="text-align: center;color: #ED553B;" class="p-5" >View Books</h1>
+
+
+
+  <div class="books row">
+      <div class="book col-3 mb-5" *ngFor="let book of books" >
+      <div  class="col-10">
+      <app-all-book-card [books]="book"></app-all-book-card>
+      
+      </div>
+  </div>
+
+  </div>
+
+
+<div class="container mt-5 text-center d-flex justify-content-center">
+  <app-pagination
+    [pagination]="_pagination"
+    [next]="next"
+    [prev]="prev"
+    [page]="page"
+    (currPage)="currentPage($event)"
+  >
+  </app-pagination>
+</div>
+  </div>
+  </div>

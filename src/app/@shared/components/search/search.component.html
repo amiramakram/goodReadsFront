@@ -1,0 +1,10 @@
+<form class="wrap mt-4">
+    <div class="search">
+      <!--<h3>Search {{title}} by name filter : </h3>-->
+      <input class="searchTerm" type="text" name="searchTerm"
+        [placeholder]="'Filter by ' + title + ' name'"
+        [(ngModel)]="searchText"
+        (keyup)="search(searchText)"
+        (blur)="changeSHOWresult()"  />
+    </div>
+  </form>
